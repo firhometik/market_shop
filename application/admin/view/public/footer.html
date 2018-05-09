@@ -1,0 +1,62 @@
+<footer class="main-footer">
+	<div class="pull-right hidden-xs">
+		<b>Version</b> 2.0.0
+	</div>
+	<strong>Copyright &copy; 2015-2016 <a href="http://www.leoex.com">leoex.com</a>.</strong> All rights reserved.
+</footer>
+<div id="sModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-sm " role="document">
+		<div class="modal-content"> 
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<div id="bModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">  
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<div id="Modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-m" role="document">
+		<div class="modal-content"> 			 
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<div id="head_div" class="modal fade in head_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-head" role="document">
+		<div class="modal-content cmd"> 
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title" id="gridModalLabel">头像上传</h4>
+			</div>
+			<div id="altContent_head"></div>
+		</div>
+	</div>
+</div>
+<script src="__BS__/js/bootstrap.min.js"></script>
+<script src="__JS__/app.min.js"></script>   
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/sweet-alert.min.js"></script> 
+<script>
+	$(function(){
+		 
+		$("#setClearCache").confirm({
+			success:function(msg){
+				swal({
+					"timer":1000,
+					'type':"success",
+					"text":msg.info,
+					"title":"Good job!" 
+				});
+			}
+		})
+		$("div.user-panel").on("mouseenter",function(){
+			if($("body").hasClass("sidebar-collapse"))
+				$(this).addClass("open")
+		})
+		$("div.user-panel").on("mouseleave",function(){
+			if($("body").hasClass("sidebar-collapse"))
+				$(this).removeClass("open")
+		})
+	})
+</script>

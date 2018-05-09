@@ -1,0 +1,73 @@
+
+/*副导航*/
+.fnav{
+	padding: 0 0.25rem;
+	background-color: #fff;
+	border-bottom: 0.01rem solid #e7e7e7;
+}
+.fnav .swiper-container{
+	width: 100%;
+	height: 1rem;
+}
+.fnav .swiper-slide{
+	height: 1rem;
+}
+.fnava{
+	display: block;
+	text-align: center;
+	line-height: 1rem;
+	color: #2c2c2c;
+	font-size: 0.3rem;
+}
+.cpon{
+	border-bottom: 0.03rem solid #f14702;
+}
+
+/*内容*/
+.main{
+	width: 100%;
+	margin-top: 2.3rem;
+	margin-bottom: 1rem;
+}
+
+/*正文*/
+.lb-zw{
+	background-color: #fafafa;
+}
+.lb-zw li{
+	width: 3.6rem;
+	float: left;
+	margin-right: .3rem;
+	border: 0.01rem solid #e7e7e7;
+	margin-bottom: .25rem;
+}
+.lb-zw li:nth-of-type(2n){
+	margin-right: 0;
+}
+.ys2{
+	display: block;
+}
+.ys2 img{
+	width: 100%;
+	height: 2.1rem;
+	display: block;
+}
+.ys2 div{
+	padding: .25rem;
+	background-color: #fff;
+}
+.ys2 div p:nth-of-type(1){
+	width: 100%;
+	height: .3rem;
+	line-height: .3rem;
+	font-size: .28rem;
+	color: #333;
+	margin-bottom: .1rem;
+}
+.ys2 div p:nth-of-type(2){
+	width: 100%;
+	height: .3rem;
+	line-height: .3rem;
+	font-size: .24rem;
+	color: #999;
+}

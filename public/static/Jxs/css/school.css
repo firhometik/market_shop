@@ -1,0 +1,200 @@
+
+/*在线大学顶部*/
+.public-top a span{
+  color: #fff;
+}
+
+/*在线大学导航*/
+.school-nav{
+	width: 100%;
+	height: 1rem;
+	border-bottom: 0.01rem solid #e7e7e7;
+	background-color: #fff;
+}
+.school-nav li{
+	width: 25%;
+	height: 1rem;
+	float: left;
+	font-size: 0.3rem;
+	line-height: 1rem;
+	text-align: center;
+}
+.school-nav li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #333;
+}
+.schoolon{
+	border-bottom: 0.03rem solid #fb544c;
+}
+
+.main{
+	width: 100%;
+	margin-top: 3.27rem;
+	margin-bottom: 1rem;
+}
+
+/*知识库样式*/
+.school-main{
+	width: 100%;
+}
+.school-main li{
+	width: 100%;
+	padding: 0.22rem 0.25rem;
+	background-color: #fff;
+	margin-bottom: 0.1rem;
+}
+.school-main-l{
+	padding-top: 0.22rem;
+	width: 4.7rem;
+}
+.school-main-l p:nth-of-type(1){
+	height: 0.28rem;
+	line-height: 1;
+	color: #333;
+	font-size: 0.28rem;
+	position: relative;
+	text-indent: 0.7rem;
+	margin-bottom: 0.1rem;
+}
+.school-main-l p:nth-of-type(1) img{
+	width: 0.6rem;
+	height: 0.28rem;
+	margin-right: 0.1rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.school-main-l p:nth-of-type(2){
+	line-height: 0.30rem;
+	color: #666;
+	font-size: 0.24rem;
+}
+.school-main-r{
+	width: 2.1rem;
+	height: 1.42rem;
+	display: block;
+}
+.zhibo{
+	width: 100%;
+	height: 1.42rem;
+	padding-top: 0.2rem;
+}
+.zhibo p:nth-of-type(1){
+	height: 0.28rem;
+	line-height: 1;
+	color: #333;
+	font-size: 0.28rem;
+	position: relative;
+	text-indent: 0.7rem;
+	margin-bottom: 0.1rem;
+}
+.zhibo p:nth-of-type(1) img{
+	width: 0.6rem;
+	height: 0.28rem;
+	margin-right: 0.1rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.zhibo p:nth-of-type(2){
+	line-height: 0.28rem;
+	color: #666;
+	font-size: 0.24rem;
+}
+
+/*排行榜样式*/
+.container{
+	position: relative;
+}
+.schoolphb-main{
+	width: 100%;
+}
+.schoolphb-main>li{
+	padding: 0 0.25rem;
+	background-color: #fff;
+	margin-bottom: 0.1rem;
+	height: 1rem;
+}
+.schoolphb-main>li>p{
+	width: 25%;
+	height: 1rem;
+	text-align: center;
+	line-height: 1rem;
+	float: left;
+	color: #2c2c2c;
+	font-size: 0.28rem;
+	position: relative;
+}
+.schoolphb-main>li>.phb2>img{
+	width: 0.66rem;
+	height: 0.66rem;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.17rem;
+	border-radius: 50%;
+}
+.jiangpai{
+	width: 0.5rem;
+	height: 0.64rem;
+	display: block;
+	background-color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -.25rem;
+	margin-top: -.32rem;
+}
+.schoolphb-main>li>.phb3,.schoolphb-main>li>.phb4 {
+	text-align: left;
+}
+
+
+
+/*底部导航*/
+.footer{
+	position: fixed;
+	z-index: 100;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1rem;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	border-top: 0.01rem solid #e7e7e7;
+	background: #fff;
+}
+.navLink {
+	height: 1rem;
+	font-size: 0.28rem;
+	-webkit-box-flex: 1;
+	-ms-flex: auto;
+	flex: auto;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	line-height: 1;
+	color: #000;
+}
+.navLink span:nth-of-type(1){
+	font-size: 0.4rem;
+	text-align: center;
+}
+
+.navLink.active {
+	color: #f24702;
+}
