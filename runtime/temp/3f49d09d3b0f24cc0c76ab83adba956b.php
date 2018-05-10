@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"D:\Servers\market_shop\public/../application/admin\view\login\index.html";i:1525966306;}*/ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,9 +8,9 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="__BS__/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/Admin/bootstrap/css/bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="__CSS__/AdminLTE.min.css">
+    <link rel="stylesheet" href="/static/Admin/css/AdminLTE.min.css">
     <style>
       .yzm{padding-right: 140px;position: relative;}
       .yzm img{position: absolute;right:0;top:0;border:1px solid #d7d7d7;}
@@ -27,7 +28,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">请输入您的登录帐号和密码</p>
-        <form action="{:url('/login/setLogin')}" method="post" id='login'>
+        <form action="<?php echo url('/login/setLogin'); ?>" method="post" id='login'>
           <input type="hidden" name='sfkey' value="" id='sfkey'> 
           <div class="form-group has-feedback">
             <input type="text" data-must="1"  class="form-control checkForm" name='user_name'  placeholder="您的登录帐号或手机号" value=''>
@@ -79,10 +80,10 @@
       </div> 
     </div><!-- /.login-box -->
     <!-- jQuery 2.1.4 -->
-    <script src="__JS__/jQuery-2.1.4.min.js"></script>
+    <script src="/static/Admin/js/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="__BS__/js/bootstrap.min.js"></script>
-    <script src="__JS__/jquery.form.js"></script>
+    <script src="/static/Admin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/Admin/js/jquery.form.js"></script>
     <script>
       $(function(){
         $("form").ajaxForm(function(e){ 

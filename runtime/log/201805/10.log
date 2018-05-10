@@ -324,3 +324,77 @@
 [ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.007001s ]
 [ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
 [ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525944841,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.053003s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:14:43+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ error ] [1049]SQLSTATE[HY000] [1049] Unknown database 'market_shop'
+---------------------------------------------------------------
+[ 2018-05-10T23:17:35+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:19:24+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525965564,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:21:04+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525965664,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:21:47+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525965707,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002001s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:22:49+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525965769,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:24:38+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.012000s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525965878,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:28:06+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525966086,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.013001s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:28:16+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011000s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525966096,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:28:32+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525966112,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002001s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:29:59+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525966199,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:31:14+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525966274,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-05-10T23:31:54+08:00 ] 127.0.0.1 POST /login/setLogin.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`password`,`status` FROM `o2o_user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `o2o_user`  SET `last_login_time`=1525966314,`last_login_ip`='127.0.0.1'  WHERE  `id` = 1  LIMIT 1 [ RunTime:0.002000s ]
