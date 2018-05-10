@@ -10,3 +10,11 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+function _outPut($code, $msg = '', $data = array()) {
+    $ret = array();
+    $ret['code'] = $code;
+    $ret['msg'] = $msg;
+    $ret['data'] = $data;
+    echo json_encode($ret);
+    exit();
+}

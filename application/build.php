@@ -23,7 +23,7 @@ return [
     // ],
     'admin'     => [
         '__file__'   => ['common.php'],
-        '__dir__'    => ['controller', 'model', 'view'],
+        '__dir__'    => ['controller', 'model', 'view','validate'],
         'controller' => ['Index', 'Admin', 'User','Category','Login'],
         'model'      => ['User', 'Category'],
         'view'       => ['index/index','category/index','login/index'],
