@@ -54,7 +54,7 @@ return [
     // +----------------------------------------------------------------------
 
     // 默认模块名
-    'default_module'         => 'admin',
+    'default_module'         => 'index',
     // 禁止访问模块
     'deny_module_list'       => ['common'],
     // 默认控制器名
@@ -95,7 +95,7 @@ return [
     // 是否强制使用路由
     'url_route_must'         => false,
     // 域名部署
-    'url_domain_deploy'      => false,
+    'url_domain_deploy'      => true,
     // 域名根，如thinkphp.cn
     'url_domain_root'        => '',
     // 是否自动转换URL中的控制器和操作名
@@ -142,10 +142,10 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-        '__JS__'             =>             '/public/static/Admin/js', 
-        '__CSS__'            =>             '/public/static/Admin/css', 
-        '__IMG__'            =>             '/Document/static/Admin/img',
-        '__BS__'             =>             '/public/static/Admin/bootstrap', 
+        '__JS__'             =>             '/static/Admin/js', 
+        '__CSS__'            =>             '/static/Admin/css', 
+        '__IMG__'            =>             '/static/Admin/img',
+        '__BS__'             =>             '/static/Admin/bootstrap', 
 
     ],
     'WEB_SET'            => array(

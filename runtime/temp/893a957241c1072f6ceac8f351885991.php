@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"G:\market_shop\public/../application/admin\view\index\index.html";i:1525857252;s:54:"G:\market_shop\application\admin\view\public\left.html";i:1525505625;s:56:"G:\market_shop\application\admin\view\public\footer.html";i:1520500774;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:64:"G:\market_shop\public/../application/admin\view\index\index.html";i:1525858405;s:54:"G:\market_shop\application\admin\view\public\left.html";i:1525858374;s:56:"G:\market_shop\application\admin\view\public\footer.html";i:1525858379;}*/ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?php echo $web['title']; ?></title> 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> 
-    <link rel="stylesheet" href="__BS__/css/bootstrap.min.css">   
-    <link rel="stylesheet" href="/static/css/AdminLTE.min.css"> 
-    <link rel="stylesheet" href="/static/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="/static/css/sweet-alert.css">
-    <script src="/static/js/jQuery-2.1.4.min.js"></script> 
+    <link rel="stylesheet" href="/static/Admin/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="/static/Admin/css/AdminLTE.min.css"> 
+    <link rel="stylesheet" href="/static/Admin/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/Admin/css/sweet-alert.css">
+    <script src="/static/Admin/js/jQuery-2.1.4.min.js"></script> 
 <style>
      .contentList .edittd{position: relative;}
         .contentList .editbox{width:72px;height:36px;position: absolute;top:9px;right:85px;display: none;}
@@ -47,7 +47,7 @@ display: none;
     <section class="sidebar" style='overflow: auto;height: 720px'> 
         <div class="user-panel">
             <div class="pull-left image dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="__IMG__/1.jpg" class="img-circle" alt="User Image">
+                <img src="/static/Admin/img/1.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <p>hello</p>
@@ -337,10 +337,10 @@ display: none;
 		</div>
 	</div>
 </div>
-<script src="__BS__/js/bootstrap.min.js"></script>
-<script src="/static/js/app.min.js"></script>   
-<script src="/static/js/jquery.form.js"></script>
-<script src="/static/js/sweet-alert.min.js"></script> 
+<script src="/static/Admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/Admin/js/app.min.js"></script>   
+<script src="/static/Admin/js/jquery.form.js"></script>
+<script src="/static/Admin/js/sweet-alert.min.js"></script> 
 <script>
 	$(function(){
 		 

@@ -1,0 +1,24 @@
+---------------------------------------------------------------
+[ 2018-05-10T08:57:03+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
+---------------------------------------------------------------
+[ 2018-05-10T08:57:14+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
+---------------------------------------------------------------
+[ 2018-05-10T08:57:15+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
+---------------------------------------------------------------
+[ 2018-05-10T08:57:16+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
+---------------------------------------------------------------
+[ 2018-05-10T08:57:16+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
+---------------------------------------------------------------
+[ 2018-05-10T08:57:17+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
+---------------------------------------------------------------
+[ 2018-05-10T08:57:17+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
+---------------------------------------------------------------
+[ 2018-05-10T08:57:17+08:00 ] 127.0.0.1 GET /
+[ error ] [4]语法错误: unexpected end of file, expecting identifier (T_STRING) or \\ (T_NS_SEPARATOR)
