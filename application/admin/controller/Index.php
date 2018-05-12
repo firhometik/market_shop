@@ -4,7 +4,6 @@ use think\Controller;
 
 class Index extends Admin
 {
-    
     public function index()
     {
         return $this -> fetch();

@@ -16,7 +16,7 @@ display: none;
                 <img src="__IMG__/1.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <p>hello</p>
+                <p>{$myuser.username}</p>
                 <a href="javascript:void(0)" >
                     用户中心<i class="iconfont">&#xe60c;</i>
                 </a> 
@@ -96,3 +96,26 @@ display: none;
         </ul>
     </section>
 </aside>
+<script type="text/javascript">
+$(function(){
+    $('li.treeview').each(function(){
+        if($(this).children('ul.treeview-menu').children('li').length==0){
+            $(this).remove();
+        }
+    })        
+})
+
+    
+    $("#setOutLogin").click(function () {
+        var url = $(this).attr("data-href");
+        $.getJSON(url, function () {
+            $.ajax({
+                url: "http://api.{$Think.const.APP_DOMAINNAME}/Uc/outLogin",
+                dataType: "jsonp",
+                jsonp: 'callback'
+            });
+            window.location.href = "/Login";
+            return false;
+        })
+    })
+</script>

@@ -6,7 +6,7 @@ use think\Model;
 class User extends Model
 {
 	//查询用户信息
-	public static function getUserinfo($field, $where)
+	public static function getUserinfo($field='*', $where)
     {
         return Db::table('o2o_user')
             ->field($field)
@@ -27,6 +27,13 @@ class User extends Model
             ->data($data)
             ->limit($limit)
             ->update();
+    }
+    //登陆日志添加
+    public static function record_log($data)
+    {
+        return Db::table('o2o_login_record')
+            ->data($data)
+            ->insert();
     }
 
 }
