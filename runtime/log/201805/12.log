@@ -428,3 +428,155 @@
 [ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
 [ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.017001s ]
 [ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-05-12T19:51:58+08:00 ] 127.0.0.1 GET /
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-05-12T19:52:10+08:00 ] 127.0.0.1 GET /
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-05-12T20:16:49+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [8]未定义数组索引: role_id
+---------------------------------------------------------------
+[ 2018-05-12T20:19:07+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [8]未定义变量: rs
+---------------------------------------------------------------
+[ 2018-05-12T20:31:02+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [8]未定义变量: list
+---------------------------------------------------------------
+[ 2018-05-12T20:42:48+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [1]Call to undefined function app\admin\controller\getparent()
+---------------------------------------------------------------
+[ 2018-05-12T20:44:50+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [64]Cannot make non static method think\Model::getparent() static in class app\common\model\Category
+---------------------------------------------------------------
+[ 2018-05-12T20:58:01+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.020002s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001001s ]
+[ error ] [1]Class 'app\admin\controller\Loader' not found
+---------------------------------------------------------------
+[ 2018-05-12T20:58:42+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+[ error ] [1]Call to undefined function thumb()
+---------------------------------------------------------------
+[ 2018-05-12T20:59:40+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-05-12T21:02:49+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-05-12T21:03:02+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-05-12T21:03:22+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+[ error ] [1]Call to undefined function thumb()
+---------------------------------------------------------------
+[ 2018-05-12T21:03:43+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.001000s ]
+[ error ] [0]类的属性不存在:app\common\model\Category->com_thumb
+---------------------------------------------------------------
+[ 2018-05-12T21:04:41+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+[ error ] [0]类的属性不存在:app\common\model\Category->com_thumb
+---------------------------------------------------------------
+[ 2018-05-12T21:04:52+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.010001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.011001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-05-12T21:19:47+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-05-12T21:19:53+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.000000s ]
+[ error ] [1]Call to undefined function UA()
+---------------------------------------------------------------
+[ 2018-05-12T21:20:38+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.001000s ]
+[ error ] [1]Call to undefined function UA()
+---------------------------------------------------------------
+[ 2018-05-12T21:20:39+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.001000s ]
+[ error ] [1]Call to undefined function UA()
+---------------------------------------------------------------
+[ 2018-05-12T21:21:15+08:00 ] 127.0.0.1 GET /Category/index
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003001s ] mysql:host=127.0.0.1;port=3306;dbname=market_shop;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_user` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_user` WHERE  `id` IN (1) LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `o2o_category` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `o2o_category` WHERE  `status` <> -1  AND `parent_id` = 0 ORDER BY `listorder` DESC,`id` DESC LIMIT 0,15 [ RunTime:0.001000s ]
+[ error ] [2]strpos() expects parameter 1 to be string, array given

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\Servers\market_shop\public/../application/admin\view\category\index.html";i:1526131271;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526125903;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\Servers\market_shop\public/../application/admin\view\category\index.html";i:1526230290;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526125903;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -261,7 +261,7 @@ $(function(){
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "$empty" ;else: foreach($__LIST__ as $key=>$rs): $mod = ($i % 2 );++$i;?>
+                                <?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$rs): $mod = ($i % 2 );++$i;?>
                                 <tr class="mailbox-subject contentItem" id='contentListItem-<?php echo $rs['id']; ?>'>
                                     <td class='maxtable'>
                                         <div class="checkbox checkbox-slider--b-errya">
@@ -280,15 +280,12 @@ $(function(){
                                         <a href="<?php echo url('category/status',['id'=>$rs['id'],'status'=>1]); ?>" title="点击修改状态"><?php echo status($rs['status']); ?></a>
                                     </td>
                                     <td class="td-manage">
-                                        <a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>">获取子栏目</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','<?php echo url("Category/add",['id'=>$rs['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url("Category/delcategory",['id'=>$rs['id']]); ?>','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-                                        <a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>">获取子栏目</a>
-                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" data-remote="/Category/getCategory/id/<?php echo $rs['id']; ?>"  >
-                                            <i class="iconfont edit" class='edit' data='<?php echo $rs['id']; ?>'>&#xe648;</i>
-                                        </a>
-                                        <i class="iconfont del" onclick='setDel(<?php echo $rs['id']; ?>)'>&#xe649;</i>
+                                        <a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>" style="float: left;line-height: 36px;">获取子栏目</a>
+                                        <a style="text-decoration:none" class="ml-5" data-toggle="modal" data-target="#Modal" data-remote="/Category/getCategory/id/<?php echo $rs['id']; ?>" href="javascript:;" title="编辑"><i class="iconfont edit" data='<?php echo $rs['id']; ?>'>&#xe648;</i></a> 
+                                        <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url("Category/delcategory",['id'=>$rs['id']]); ?>','')" href="javascript:;" title="删除"><i class="iconfont del">&#xe649;</i></a>
                                     </td>
                                 </tr>
-                                <?php endforeach; endif; else: echo "$empty" ;endif; ?>
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
                                 </tbody>
                             </table>
                         </div><!-- /.mail-box-messages -->
@@ -303,7 +300,7 @@ $(function(){
                                     <button class="btn btn-danger btn-sm contentDel" >
                                         移除
                                     </button>
-                                    <button class="btn btn-success btn-sm contentDel" data-toggle="modal" data-target="#Modal" data-remote="/Setting/getCombind/comid/" >
+                                    <button class="btn btn-success btn-sm contentDel" data-toggle="modal" data-target="#Modal" data-remote="/Category/getCategory" >
                                         添加广告内容
                                     </button>
                                 </div>
@@ -430,20 +427,6 @@ $(function(){
             setDel(p)
         });
 
-        //搜索会员
-        // $("#searchTime").click(function(){
-        //     var url = "<?php echo url(array('time'=>'','userid'=>'')); ?>";
-        //     var userid = $(".searchUserID input[name='userid']").val();
-        //     var time = $(".searchTime input[name='time']").val();
-        //     var urlTemp = "";
-        //     if(userid) urlTemp = "?userid="+userid;
-        //     if(time)
-        //     {
-        //         if(urlTemp) urlTemp = urlTemp + "&time="+time;
-        //         else urlTemp = "?time="+time;
-        //     }
-        //     window.location = url+urlTemp
-        // })
 
         $("#search-dropdown-menu").click(function(e){
             if($(e.target)[0].tagName != "A")
@@ -464,10 +447,10 @@ $(function(){
         //绑定
         $(".contentBind").click(function(){
             var id = $("input[name='contentbindid']").val();
-            var cate = '<?php echo $t['cate']['id']; ?>';
+            var cate = '';
             if(id &&　cate)
             {
-                $.getJSON("/Setting/bindContentCategory/id/"+id+"/cate/"+cate+"/type/<?php echo $t['cate']['cate_type']; ?>",function(e){
+                $.getJSON("/Setting/bindContentCategory/id/"+id+"/cate/"+cate+"/type/1",function(e){
                     if(e.status)
                     {
                         $(".modal").modal('hide');
@@ -530,15 +513,6 @@ $(function(){
         return check.join(",");
 
     }
-    // function putKey(key)
-    // {
-    //     var url = "<?php echo url(array('key'=>'')); ?>";
-    //     if(key)
-    //         window.location = url + "?key="+ key;
-    //     else
-    //         window.location = url;
-    // }
 </script>
-<?php echo EC('file'); ?>
 </body>
 </html>

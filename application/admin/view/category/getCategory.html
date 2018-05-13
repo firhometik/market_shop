@@ -51,11 +51,10 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
     </button>
-    <h4 class="modal-title" id="gridModalLabel">发布到 广告位</h4>
-    {$c.c_title}
+    <h4 class="modal-title" id="gridModalLabel">添加生活分类</h4>
 </div>
 <div class="form-horizontal">
-    <form method="post" id='pushCommend' action='/Setting/pushCommend'>
+    <form method="post" id='pushCommend' action='/Category/setCategory'>
         <div class="modal-body topicsCommed">
 
             <input type="hidden" name='comid' value="{$comid}">
