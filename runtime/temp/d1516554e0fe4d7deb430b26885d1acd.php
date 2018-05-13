@@ -1,19 +1,20 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\Servers\market_shop\public/../application/admin\view\category\index.html";i:1526131271;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526125903;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{$web.title}</title>
-    <link rel="stylesheet" href="__BS__/css/bootstrap.min.css">
-    <link rel="stylesheet" href="__CSS__/AdminLTE.min.css">
-    <link rel="stylesheet" href="__CSS__/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="__CSS__/sweet-alert.css">
-    <link rel="stylesheet" href="__CSS__/titatoggle-dist-min.css">
+    <title><?php echo $web['title']; ?></title>
+    <link rel="stylesheet" href="/static/Admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/Admin/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/static/Admin/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/Admin/css/sweet-alert.css">
+    <link rel="stylesheet" href="/static/Admin/css/titatoggle-dist-min.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="__JS__/jQuery-2.1.4.min.js"></script>
+    <script src="/static/Admin/js/jQuery-2.1.4.min.js"></script>
     <style>
         .headDropdown .dropdown-menu{min-width:145px;}
         .headDropdown .dropdown-menu a{font-size: 14px;padding:10px 20px;}
@@ -87,10 +88,136 @@
         .cateList .text-primary{font-weight: bold;}
     </style>
 </head>
-<body class="hold-transition skin-blue sidebar-mini {$web.sidebar_collapse}">
+<body class="hold-transition skin-blue sidebar-mini <?php echo $web['sidebar_collapse']; ?>">
 <div class="wrapper">
     <header class="main-header">
-      {include file="public/left" /}
+      <style>
+    ::-webkit-scrollbar /*隐藏滚轮*/
+display: none;
+
+</style>
+<header class="main-header" role="navigation">
+    <a href="#" class="logo sidebar-toggle" data-toggle="offcanvas">
+        <span class="logo-mini"><i class="iconfont">&#xe60a;</i></span>
+        <span class="logo-lg"><b>fireworhome</b></span>
+    </a> 
+</header>
+<aside class="main-sidebar">
+    <section class="sidebar" style='overflow: auto;height: 720px'> 
+        <div class="user-panel">
+            <div class="pull-left image dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="/static/Admin/img/1.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p><?php echo $myuser['username']; ?></p>
+                <a href="javascript:void(0)" >
+                    用户中心<i class="iconfont">&#xe60c;</i>
+                </a> 
+            </div>
+            <ul class="dropdown-menu user-menu">
+                <li>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#bModal" data-remote="/Setting/myhead">  
+                        修改头像
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#bModal" data-remote="/Setting/myinfo">
+                        修改个人资料
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" data-remote="/Setting/getEditPass">  
+                        修改密码
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" data-remote="/Setting/getBindWeixin">  
+                        绑定微信
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" data-remote="/Setting/binduser">
+                        绑定手机/邮箱
+                    </a>
+
+                <li role="separator" class="divider"></li>
+                <li>
+                    <a href="javascript:void(0)" data-href="/Login/outLogin/isTrue/1" id='setOutLogin'>安全退出</a>
+                </li>
+            </ul>
+        </div> 
+
+        <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview">
+                <a href="/Index.html">
+                    <i class="iconfont">&#xe615;</i> <span>主页</span>
+                </a> 
+            </li>
+            <li class="treeview ">
+                <a href="#"><i class="iconfont">&#xe614;</i><span>基础管理</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu"> 
+                  <li class="active"><a href="Setting/behaviour"><i class="iconfont">&#xe632;</i> 行为管理</a></li> 
+                </ul>
+            </li>
+            <li class="treeview ">
+                <a href="#"><i class="iconfont">&#xe641;</i><span>分类管理</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                   <li class="active"><a href="Category/index"><i class="iconfont">&#xe61a;</i> 生活服务分类</a></li>
+                </ul>
+            </li>           
+
+
+            <li class="treeview ">
+                <a href="#"><i class="iconfont">&#xe641;</i><span>内容管理</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                   <li class="active"><a href="Setting/commond"><i class="iconfont">&#xe61a;</i> 广告管理</a></li>
+                    <li class="treeview">
+                        <a href="#"><i class="iconfont">&#xe641;</i><span>商城维护</span></a>
+                        <ul class="treeview-menu">
+                            <li  class="active"><a href="Content/gift"><i class="iconfont">&#xe640;</i>礼品管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview ">
+                <a href="#"><i class="iconfont">&#xe614;</i><span>信息管理</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu"> 
+                    <li class="active"><a href="Jxs/movetask"><i class="iconfont">&#xe633;</i> 奖励活动管理</a></li>
+                </ul>
+            </li>
+
+
+            <li class="treeview ">
+                <a href="#"><i class="iconfont">&#xe617;</i><span>数据报表</span></a>
+            </li>
+        </ul>
+    </section>
+</aside>
+<script type="text/javascript">
+$(function(){
+    $('li.treeview').each(function(){
+        if($(this).children('ul.treeview-menu').children('li').length==0){
+            $(this).remove();
+        }
+    })        
+})
+
+    
+    $("#setOutLogin").click(function () {
+        var url = $(this).attr("data-href");
+        $.getJSON(url, function () {
+            $.ajax({
+                url: "http://api.<?php echo APP_DOMAINNAME; ?>/Uc/outLogin",
+                dataType: "jsonp",
+                jsonp: 'callback'
+            });
+            window.location.href = "/Login";
+            return false;
+        })
+    })
+</script>
+
     </header>
 
     <div class="content-wrapper">
@@ -101,7 +228,7 @@
                 <small>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="{:url('Index/index')}"><i class="iconfont">&#xe615;</i> 后台首页</a>
+                            <a href="<?php echo url('Index/index'); ?>"><i class="iconfont">&#xe615;</i> 后台首页</a>
                         </li>
                         <li>
                             生活分类管理
@@ -134,34 +261,34 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {volist name='category' id='rs'  empty="$empty"}
-                                <tr class="mailbox-subject contentItem" id='contentListItem-{$rs.id}'>
+                                <?php if(is_array($category) || $category instanceof \think\Collection || $category instanceof \think\Paginator): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "$empty" ;else: foreach($__LIST__ as $key=>$rs): $mod = ($i % 2 );++$i;?>
+                                <tr class="mailbox-subject contentItem" id='contentListItem-<?php echo $rs['id']; ?>'>
                                     <td class='maxtable'>
                                         <div class="checkbox checkbox-slider--b-errya">
                                             <label>
-                                                <input type="checkbox" class='checkItem' data='{$rs.id}'/><span></span>
+                                                <input type="checkbox" class='checkItem' data='<?php echo $rs['id']; ?>'/><span></span>
                                             </label>
                                         </div>
                                     </td>
-                                    <td>{$rs.id}</td>
-                                    <td>{$rs.name}</td>
+                                    <td><?php echo $rs['id']; ?></td>
+                                    <td><?php echo $rs['name']; ?></td>
                                     <td class="listorder">
-                                        <input size="3" attr-id="{$rs.id}" name="listorder" value="{$rs.listorder}"></input>
+                                        <input size="3" attr-id="<?php echo $rs['id']; ?>" name="listorder" value="<?php echo $rs['listorder']; ?>"></input>
                                     </td>
-                                    <td>{$rs.create_time}</td>
+                                    <td><?php echo $rs['create_time']; ?></td>
                                     <td class="td-status">
-                                        <a href="{:url('category/status',['id'=>$rs.id,'status'=>1])}" title="点击修改状态">{$rs.status|status}</a>
+                                        <a href="<?php echo url('category/status',['id'=>$rs['id'],'status'=>1]); ?>" title="点击修改状态"><?php echo status($rs['status']); ?></a>
                                     </td>
                                     <td class="td-manage">
-                                        <a href="{:url('category/index',['parent_id'=>$rs.id])}">获取子栏目</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','{:url("Category/add",['id'=>$rs.id])}','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('{:url("Category/delcategory",['id'=>$rs.id])}','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-                                        <a href="{:url('category/index',['parent_id'=>$rs.id])}">获取子栏目</a>
-                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" data-remote="/Category/getCategory/id/{$rs.id}"  >
-                                            <i class="iconfont edit" class='edit' data='{$rs.id}'>&#xe648;</i>
+                                        <a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>">获取子栏目</a><a style="text-decoration:none" class="ml-5" onClick="o2o_s_edit('编辑','<?php echo url("Category/add",['id'=>$rs['id']]); ?>','',300)" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url("Category/delcategory",['id'=>$rs['id']]); ?>','')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                                        <a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>">获取子栏目</a>
+                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#Modal" data-remote="/Category/getCategory/id/<?php echo $rs['id']; ?>"  >
+                                            <i class="iconfont edit" class='edit' data='<?php echo $rs['id']; ?>'>&#xe648;</i>
                                         </a>
-                                        <i class="iconfont del" onclick='setDel({$rs.id})'>&#xe649;</i>
+                                        <i class="iconfont del" onclick='setDel(<?php echo $rs['id']; ?>)'>&#xe649;</i>
                                     </td>
                                 </tr>
-                                {/volist}
+                                <?php endforeach; endif; else: echo "$empty" ;endif; ?>
                                 </tbody>
                             </table>
                         </div><!-- /.mail-box-messages -->
@@ -195,7 +322,68 @@
 
 
     </div>
-    {include file="Public/footer" /}
+    <footer class="main-footer">
+	<div class="pull-right hidden-xs">
+		<b>Version</b> 2.0.0
+	</div>
+	<strong>Copyright &copy; 2015-2016 <a href="http://www.leoex.com">leoex.com</a>.</strong> All rights reserved.
+</footer>
+<div id="sModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-sm " role="document">
+		<div class="modal-content"> 
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<div id="bModal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">  
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<div id="Modal" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-m" role="document">
+		<div class="modal-content"> 			 
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<div id="head_div" class="modal fade in head_div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-head" role="document">
+		<div class="modal-content cmd"> 
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title" id="gridModalLabel">头像上传</h4>
+			</div>
+			<div id="altContent_head"></div>
+		</div>
+	</div>
+</div>
+<script src="/static/Admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/Admin/js/app.min.js"></script>   
+<script src="/static/Admin/js/jquery.form.js"></script>
+<script src="/static/Admin/js/sweet-alert.min.js"></script> 
+<script>
+	$(function(){
+		 
+		$("#setClearCache").confirm({
+			success:function(msg){
+				swal({
+					"timer":1000,
+					'type':"success",
+					"text":msg.info,
+					"title":"Good job!" 
+				});
+			}
+		})
+		$("div.user-panel").on("mouseenter",function(){
+			if($("body").hasClass("sidebar-collapse"))
+				$(this).addClass("open")
+		})
+		$("div.user-panel").on("mouseleave",function(){
+			if($("body").hasClass("sidebar-collapse"))
+				$(this).removeClass("open")
+		})
+	})
+</script>
 </div><!-- ./wrapper -->
 <script>
     $(function(){
@@ -244,7 +432,7 @@
 
         //搜索会员
         // $("#searchTime").click(function(){
-        //     var url = "{:url(array('time'=>'','userid'=>''))}";
+        //     var url = "<?php echo url(array('time'=>'','userid'=>'')); ?>";
         //     var userid = $(".searchUserID input[name='userid']").val();
         //     var time = $(".searchTime input[name='time']").val();
         //     var urlTemp = "";
@@ -276,10 +464,10 @@
         //绑定
         $(".contentBind").click(function(){
             var id = $("input[name='contentbindid']").val();
-            var cate = '{$t.cate.id}';
+            var cate = '<?php echo $t['cate']['id']; ?>';
             if(id &&　cate)
             {
-                $.getJSON("/Setting/bindContentCategory/id/"+id+"/cate/"+cate+"/type/{$t.cate.cate_type}",function(e){
+                $.getJSON("/Setting/bindContentCategory/id/"+id+"/cate/"+cate+"/type/<?php echo $t['cate']['cate_type']; ?>",function(e){
                     if(e.status)
                     {
                         $(".modal").modal('hide');
@@ -344,13 +532,13 @@
     }
     // function putKey(key)
     // {
-    //     var url = "{:url(array('key'=>''))}";
+    //     var url = "<?php echo url(array('key'=>'')); ?>";
     //     if(key)
     //         window.location = url + "?key="+ key;
     //     else
     //         window.location = url;
     // }
 </script>
-{:EC('file')}
+<?php echo EC('file'); ?>
 </body>
 </html>

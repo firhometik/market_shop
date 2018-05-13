@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\Servers\market_shop\public/../application/admin\view\index\index.html";i:1525962185;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1525962185;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\Servers\market_shop\public/../application/admin\view\index\index.html";i:1525962185;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526125903;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -50,7 +50,7 @@ display: none;
                 <img src="/static/Admin/img/1.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <p>hello</p>
+                <p><?php echo $myuser['username']; ?></p>
                 <a href="javascript:void(0)" >
                     用户中心<i class="iconfont">&#xe60c;</i>
                 </a> 
@@ -101,7 +101,12 @@ display: none;
                   <li class="active"><a href="Setting/behaviour"><i class="iconfont">&#xe632;</i> 行为管理</a></li> 
                 </ul>
             </li>
-             
+            <li class="treeview ">
+                <a href="#"><i class="iconfont">&#xe641;</i><span>分类管理</span><i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                   <li class="active"><a href="Category/index"><i class="iconfont">&#xe61a;</i> 生活服务分类</a></li>
+                </ul>
+            </li>           
 
 
             <li class="treeview ">
@@ -130,6 +135,29 @@ display: none;
         </ul>
     </section>
 </aside>
+<script type="text/javascript">
+$(function(){
+    $('li.treeview').each(function(){
+        if($(this).children('ul.treeview-menu').children('li').length==0){
+            $(this).remove();
+        }
+    })        
+})
+
+    
+    $("#setOutLogin").click(function () {
+        var url = $(this).attr("data-href");
+        $.getJSON(url, function () {
+            $.ajax({
+                url: "http://api.<?php echo APP_DOMAINNAME; ?>/Uc/outLogin",
+                dataType: "jsonp",
+                jsonp: 'callback'
+            });
+            window.location.href = "/Login";
+            return false;
+        })
+    })
+</script>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
