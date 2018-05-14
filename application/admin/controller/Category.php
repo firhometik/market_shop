@@ -8,6 +8,9 @@ class Category extends Admin
 		return view('',['category'=>$category]);
 	}
 	public function getCategory(){
-		return $this -> fetch();
+		$id = input('get.id');
+		$cate = model('Category') ->get($id);
+		$category = model('Category') -> getparent();
+		return view('getCategory',['category'=>$category,'cate'=>$cate]);
 	}
 }

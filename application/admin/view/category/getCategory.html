@@ -1,52 +1,6 @@
 <style>
-    .topicsCommed h5 {
-        margin: 0;
-        padding-top: 15px;
-        margin-top: 15px;
-        border-top: 1px solid #eee
-    }
-
-    #title {
-        background-image: url("__IMG__/tree.png");
-        background-repeat: no-repeat;
-        background-position: -9px 0
-    }
-
-    #commendlist option {
-        display: none;
-    }
-
-    #commendlist .default {
-        display: block;
-    }
-
-    .popCategoryList li.item {
-        padding-top: 2px;
-        cursor: pointer;
-        height: 24px;
-        line-height: 22px;
-    }
-
-    .popCategoryList li.item i {
-        height: 24px;
-        width: 24px;
-        line-height: 24px;
-        overflow: hidden
-    }
-
-    .popCategoryList li.item.on {
-        background: #00a65a;
-        color: #fff
-    }
-
-    .popCategoryList li.item .del {
-        right: -16px;
-        display: none
-    }
-
-    .popCategoryList li.item:hover .del {
-        display: block;
-    }
+    .c-red{color: red;}
+    .select{height: 34px;line-height: 34px;}
 </style>
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
@@ -57,36 +11,26 @@
     <form method="post" id='pushCommend' action='/Category/setCategory'>
         <div class="modal-body topicsCommed">
 
-            <input type="hidden" name='comid' value="{$comid}">
-            <input type="hidden" name='id' value="{$commend.id}">
+            <input type="hidden" name='comid' value="">
+            <input type="hidden" name='id' value="">
 
             <div class="tab-content clearfix" id='comcentent'>
-                <div class="pull-left" style="width:380px;">
-                    <div class="form-group" style="margin-bottom: 5px">
-                        <label for="commend">主标题</label>
-                        <input type="text" class="form-control" name='com_title' value="{$commend.com_title}">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 5px">
-                        <label for="commend">副标题</label>
-                        <input type="text" class="form-control" name='com_subtitle' value="{$commend.com_subtitle}">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 5px">
-                        <label for="commend">类别</label>
-                        <input type="text" class="form-control" name='cate_name' value="{$cate_name}" readonly="">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 5px">
-                        <label for="commend">链接地址</label>
-                        <input type="text" class="form-control" name='com_url' value="{$commend.com_url}">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 5px">
-                        <label for="commend">展示状态：</label>
-                        启用<input type="radio" value="1" name="is_show" {eq name="commend.is_show" value="1"}checked{/eq}>
-                        暂停<input type="radio" value="0" name="is_show" {eq name="commend.is_show" value="0"}checked{/eq}>
+                <div class="form-group" style="margin-bottom: 5px">
+                    <label for="commend " class=" form-label col-xs-4 "><span class="c-red">*</span>生活服务分类名称：</label>
+                    <div class="formControls col-xs-8 ">
+                    <input type="text" class="form-control" name='com_title' value="">
                     </div>
                 </div>
-                <div class="pull-right" style="width:170px;margin-top: 22px;">
-                    {:EC("webuploader",array("name" => "com_thumb","size" => '1',"width"=>'157',"height" =>
-                    "157","filetype" => "all","fileext"=>"jpg,gif,jpeg,png,mp3",'value' => $commend['com_thumb']))}
+                <div class="form-group" style="margin-bottom: 5px">
+                    <label class="form-label col-xs-4 "><span class="c-red">*</span>分类栏目：</label>
+                    <div class="formControls col-xs-8 ">
+                    <select name="parent_id" class="select" style="width: 100%;">
+                        <option value="0">一级栏目</option>
+                        {volist name="category" id="rs"}
+                        <option value="{$rs.id}" {eq name="rs.id" value="$cate['parent_id']" }selected{/eq} >--{$rs.name}</option>
+                        {/volist}                           
+                    </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,7 +40,6 @@
         </div>
     </form>
 </div>
-{:EC("file")}
 <script>
     $(function () {
         $("#pushCommend").ajaxForm(function (e) {
