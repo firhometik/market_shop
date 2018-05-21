@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\market_shop\public/../application/admin\view\login\index.html";i:1525944452;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:64:"G:\market_shop\public/../application/admin\view\login\index.html";i:1526721238;}*/ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -87,12 +87,13 @@
     <script>
       $(function(){
         $("form").ajaxForm(function(e){ 
-          console.log(e);
           var s = $.parseJSON(e);
-          $("form").data("lock",false)
+          var code = s.code;
+          $("form").data("lock",false);
           $("#yzm img").click();
-          if(e.code != 200) //登陆失败
+          if(code!=200) //登陆失败
           {
+            console.log('1');
             $("#tips").removeClass("hide")
                       .removeClass("has-success")
                       .addClass("has-error")
@@ -107,6 +108,7 @@
             }
           }else
           {
+            console.log(s.code);
             $("#tips").removeClass("hide")
                       .removeClass("has-error")
                       .addClass("has-success")

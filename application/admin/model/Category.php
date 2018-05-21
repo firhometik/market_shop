@@ -21,13 +21,13 @@ class Category extends Model
 			'listorder' => 'desc',
 			'id' => 'desc',
 		];
-		return $this -> where($data) -> order($order) -> select();
+		return $this -> where($data) -> order($order) -> paginate(10);
 	}
 	public function getcategory(){
 		$data = [
 			'status' => 1,
 		];
-		$order = [
+		$order = [ 
 			'id' => 'desc',
 		];
 		return $this -> where($data) -> order($order) -> select();

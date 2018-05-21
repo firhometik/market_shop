@@ -35,7 +35,7 @@ class User extends Controller
 		$add['last_login_time'] = date('Y-m-d H:i:s');
 
 		//将登录信息写入数据库
-		$re = UserModel::modUserinfo(['id'=>$user['id']],$add);
+		$re = UserModel::modUserinfo(['id'=>$user['id']],$add); 
 		if(!$re) _outPut('302','登陆信息记录有误，请联系管理员处理！');
 		
 		$user['user_log_time'] = $add['last_login_time'];
