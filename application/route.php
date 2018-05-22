@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 use think\Route;
 Route::domain('admin.market_shop.com','admin');
+Route::domain('bis.market_shop.com','bis');
 // Route::rule('category/:parent_id','admin/category/index');
 // Route::rule('/:','admin/index/index');
 // Route::rule('getCategory/:id','admin/category/getCategory');

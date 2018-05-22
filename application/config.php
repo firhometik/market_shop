@@ -146,6 +146,9 @@ return [
         '__CSS__'            =>             '/static/Admin/css', 
         '__IMG__'            =>             '/static/Admin/img',
         '__BS__'             =>             '/static/Admin/bootstrap', 
+        '__FCSS__'           =>             '/static/Flks/css', 
+        '__FJS__'            =>             '/static/Flks/js', 
+        '__FIMG__'           =>             '/static/Flks/img', 
 
     ],
     'WEB_SET'            => array(

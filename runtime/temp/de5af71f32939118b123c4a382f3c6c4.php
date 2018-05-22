@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\Servers\market_shop\public/../application/admin\view\index\index.html";i:1525962185;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526125903;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:72:"D:\Servers\market_shop\public/../application/admin\view\index\index.html";i:1527004323;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526904549;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -104,7 +104,7 @@ display: none;
             <li class="treeview ">
                 <a href="#"><i class="iconfont">&#xe641;</i><span>分类管理</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                   <li class="active"><a href="Category/index"><i class="iconfont">&#xe61a;</i> 生活服务分类</a></li>
+                   <li class="active"><a href="/Category/index"><i class="iconfont">&#xe61a;</i> 生活服务分类</a></li>
                 </ul>
             </li>           
 

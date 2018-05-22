@@ -28,5 +28,25 @@ return [
         'model'      => ['User', 'Category'],
         'view'       => ['index/index','category/index','login/index'],
     ],
+    'bis'     => [
+        '__file__'   => ['common.php'],
+        '__dir__'    => ['controller', 'model', 'view','validate'],
+        'controller' => ['Register', 'Admin', 'User','Login'],
+        'model'      => ['Register', 'Login'],
+        'view'       => ['register/index','public/footer','public/header','public/menu','login/index'],
+    ],
+    'api'     => [
+        '__file__'   => ['common.php'],
+        '__dir__'    => ['controller', 'model'],
+        'controller' => ['Category','City'],
+        'model'      => [ 'Category','City'],
+    ],
+    'common'     => [
+        '__file__'   => ['common.php'],
+        '__dir__'    => ['controller', 'model'],
+        'controller' => ['Category','City'],
+        'model'      => ['City', 'Category'],
+    ],
+
     // 其他更多的模块定义
 ];

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\Servers\market_shop\public/../application/admin\view\category\index.html";i:1526230290;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526125903;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:75:"D:\Servers\market_shop\public/../application/admin\view\category\index.html";i:1527005589;s:62:"D:\Servers\market_shop\application\admin\view\public\left.html";i:1526904549;s:64:"D:\Servers\market_shop\application\admin\view\public\footer.html";i:1525962185;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -163,7 +163,7 @@ display: none;
             <li class="treeview ">
                 <a href="#"><i class="iconfont">&#xe641;</i><span>分类管理</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                   <li class="active"><a href="Category/index"><i class="iconfont">&#xe61a;</i> 生活服务分类</a></li>
+                   <li class="active"><a href="/Category/index"><i class="iconfont">&#xe61a;</i> 生活服务分类</a></li>
                 </ul>
             </li>           
 
@@ -270,7 +270,7 @@ $(function(){
                                             </label>
                                         </div>
                                     </td>
-                                    <td><?php echo $rs['id']; ?></td>
+                                    <td><?php echo ++$a; ?></td>
                                     <td><?php echo $rs['name']; ?></td>
                                     <td class="listorder">
                                         <input size="3" attr-id="<?php echo $rs['id']; ?>" name="listorder" value="<?php echo $rs['listorder']; ?>"></input>
@@ -281,8 +281,8 @@ $(function(){
                                     </td>
                                     <td class="td-manage">
                                         <a href="<?php echo url('category/index',['parent_id'=>$rs['id']]); ?>" style="float: left;line-height: 36px;">获取子栏目</a>
-                                        <a style="text-decoration:none" class="ml-5" data-toggle="modal" data-target="#Modal" data-remote="/Category/getCategory/id/<?php echo $rs['id']; ?>" href="javascript:;" title="编辑"><i class="iconfont edit" data='<?php echo $rs['id']; ?>'>&#xe648;</i></a> 
-                                        <a style="text-decoration:none" class="ml-5" onClick="o2o_del('<?php echo url("Category/delcategory",['id'=>$rs['id']]); ?>','')" href="javascript:;" title="删除"><i class="iconfont del">&#xe649;</i></a>
+                                        <a style="text-decoration:none" class="ml-5" data-toggle="modal" data-target="#Modal" data-remote="<?php echo url('category/getCategory',['id'=>$rs['id'],'parent_id'=>\think\Request::instance()->get('parent_id')]); ?>" href="javascript:;" title="编辑"><i class="iconfont edit" data='<?php echo $rs['id']; ?>'>&#xe648;</i></a> 
+                                        <a style="text-decoration:none" class="ml-5" onClick="setDel('<?php echo url("Category/delcategory",['id'=>$rs['id']]); ?>')" href="javascript:;" title="删除"><i class="iconfont del">&#xe649;</i></a>
                                     </td>
                                 </tr>
                                 <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -300,14 +300,14 @@ $(function(){
                                     <button class="btn btn-danger btn-sm contentDel" >
                                         移除
                                     </button>
-                                    <button class="btn btn-success btn-sm contentDel" data-toggle="modal" data-target="#Modal" data-remote="/Category/getCategory" >
-                                        添加广告内容
+                                    <button class="btn btn-success btn-sm " data-toggle="modal" data-target="#Modal" data-remote="<?php echo url('category/getCategory',['parent_id'=>\think\Request::instance()->get('parent_id')]); ?>" >
+                                        添加分类
                                     </button>
                                 </div>
                             </div>
                             <ul class="pagination pull-right ">
                                 <li class='paginate_button '>
-                                    <a href=''>}</a>
+                                    <?php echo $category->render(); ?>
                                 </li>
                             </ul>
                         </div>
@@ -466,42 +466,40 @@ $(function(){
         })
     })
 
-    function setDel(id)
+    function setDel(url)
     {
-        if(!id) return false;
-
-        var url = '/Setting/delTopicsCommend/id/'+id;
-        $.getJSON(url,function(e){
-
-            swal(
+        if(!url) return false;
+        swal(
+                {
+                    title: "Are you sure?",
+                    text: '真的要删除吗？',
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                    cancelButtonText: "放弃",
+                    closeOnConfirm: false
+                },
+                function(isConfirm)
+                {
+                    if(isConfirm)
                     {
-                        title: "Are you sure?",
-                        text: e.info,
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "确定",
-                        cancelButtonText: "放弃",
-                        closeOnConfirm: false
-                    },
-                    function(isConfirm)
-                    {
-                        if(isConfirm)
-                        {
-                            $.getJSON(e.url,function(re){
-                                if(re.status == 1)
-                                {
+                        $.getJSON(url,function(re){
+                            if(re.code == 1)
+                            {
+                               $(".modal").modal('hide');
+                                swal({title: "Good job!", text: re.msg, type: "success"}, function (isConfirm) {
                                     window.location.reload();
-                                }else
-                                {
-                                    swal("So sad!", re.info, "error");
-                                }
-                            })
-                        }
+                                });
+                            }else
+                            {
+                                swal("So sad!", re.msg, "error");
+                            }
+                        })
                     }
-            );
+                }
+        );
 
-        })
     }
 
     function getSelectContentID()
@@ -513,6 +511,22 @@ $(function(){
         return check.join(",");
 
     }
+    $('.listorder input').blur(function(){
+        var id = $(this).attr('attr-id');
+        var listorder = $(this).val();
+        var postdata = {
+            'id':id,
+            'listorder':listorder
+        }
+        var url = '<?php echo url('category/listorder'); ?>';
+        $.post(url,postdata,function(e){
+            if (e.code ==1) {
+                window.location.href = e.data;
+            }else{
+                alert(e.msg)
+            }
+        },'json');
+    });
 </script>
 </body>
 </html>
