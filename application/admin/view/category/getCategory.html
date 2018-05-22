@@ -8,7 +8,7 @@
     <h4 class="modal-title" id="gridModalLabel">添加生活分类</h4>
 </div>
 <div class="form-horizontal">
-    <form method="post" id='pushCommend' action='/Category/setCategory'>
+    <form method="post" id='setCategory' action='/Category/setCategory'>
         <div class="modal-body topicsCommed">
 
             <input type="hidden" name='id' value="{$cate.id}">
@@ -26,8 +26,8 @@
                     <select name="parent_id" class="select" style="width: 100%;">
                         <option value="0">一级栏目</option>
                         {volist name="category" id="rs"}
-                        <option value="{$rs.id}" {eq name="rs.id" value="$cate['parent_id']" }selected{/eq} >--{$rs.name}</option>
-                        {/volist}                           
+                        <option value="{$rs.id}" {eq name="rs.id" value="$Think.get.parent_id" }selected{/eq} >--{$rs.name}</option>
+                        {/volist}                            
                     </select>
                     </div>
                 </div>
@@ -41,15 +41,16 @@
 </div>
 <script>
     $(function () {
-        $("#pushCommend").ajaxForm(function (e) {
-            $("#pushCommend").data("lock", false)
-            if (e.status) {
+        $("#setCategory").ajaxForm(function (e) {
+            $("#setCategory").data("lock", false)
+            e = $.parseJSON(e);
+            if (e.code == 200) {
                 $(".modal").modal('hide');
-                swal({title: "Good job!", text: e.info, type: "success"}, function (isConfirm) {
+                swal({title: "Good job!", text: e.msg, type: "success"}, function (isConfirm) {
                     window.location.reload();
                 });
             } else {
-                swal("So sad!", e.info, "error")
+                swal("So sad!", e.msg, "error")
             }
         });
     })
