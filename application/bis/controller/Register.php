@@ -1,7 +1,9 @@
 <?php
 namespace app\bis\controller;
 
-class Register
+class Register extends Admin
 {
-
+	public function index(){
+		return view();
+	}
 }
