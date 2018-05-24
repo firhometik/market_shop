@@ -12,7 +12,7 @@ class User extends Controller
 		$where['username'] = $user_name;
 		$where['disabled'] = 0;
 		//判断帐号
-		$user = UserModel::getUserinfo('',$where);
+		$user = UserModel::getUserinfo('o2o_user','',$where);
 
 		if(!$user)
 		{
@@ -35,7 +35,7 @@ class User extends Controller
 		$add['last_login_time'] = date('Y-m-d H:i:s');
 
 		//将登录信息写入数据库
-		$re = UserModel::modUserinfo(['id'=>$user['id']],$add); 
+		$re = UserModel::modUserinfo('o2o_user',['id'=>$user['id']],$add); 
 		if(!$re) _outPut('302','登陆信息记录有误，请联系管理员处理！');
 		
 		$user['user_log_time'] = $add['last_login_time'];
@@ -45,6 +45,7 @@ class User extends Controller
 		$logrecord['uid'] = $user['id'];
 		$logrecord['log_time'] = date('Y-m-d H:i:s');
 		$logrecord['log_ip'] = Request::instance() -> ip();
+		$logrecord['type'] = 1;
 		UserModel::record_log($logrecord);
 
 		//记录登陆凭证
@@ -156,7 +157,7 @@ class User extends Controller
 			 
 			if($num % $id == $mod)
 			{
-				$userTemp = UserModel::getUserinfo('',$where);
+				$userTemp = UserModel::getUserinfo('o2o_user','',$where);
 				 
 				$user = $userTemp;
 				// if(!$user) return false;

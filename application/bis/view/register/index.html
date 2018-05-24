@@ -116,8 +116,9 @@
 			<div class="formControls col-xs-8 col-sm-3"> <span class="select-box">
 				<select name="category_id" class="select categoryId">
 					<option value="0">--请选择--</option>
-					
-					<option value=""></option>
+					{volist name='category' id="vo"}
+					<option value="{$vo.id}">{$vo.name}</option>
+					{/volist}
 					
 				</select>
 				</span> 
@@ -186,6 +187,44 @@ $(function(){
 	var ue = UE.getEditor('editor');
 	var ue1 = UE.getEditor('editor1');
 });
+</script>
+<script type="text/javascript">
+	var SCOPE = {
+		'category_url':'{:url("api/category/getCategoryID",[''])}',
+		'city_url':'{:url("api/city/getCityID")}'
+	}
+	$('.categoryId').change(function(){
+		let categoryId = $(this).val();
+		let url = SCOPE.category_url;
+		// let url = 'http://api.market_shop.com/category/getCategoryID?id='+categoryId+'&jsoncallback=?';
+		let postData = {'id':categoryId};
+		// $.getJSON(url, function(e){
+		// 	if (e.code == 200) {
+		// 		let data = e.data;
+		// 		let category_html = '';
+		// 		$(data).each(function(i){
+		// 			category_html +="<input name='se_category_id[]' type='checkbox' value='"+this.id+"' id='checkbox-moban'/>"+this.name;
+		// 			category_html +="<label for='chekbox-moban'>&nbsp;</label>";
+		// 		});
+		// 		$('.se_category_id').html(category_html);
+		// 	}else{
+		// 		alert(e.msg);
+		// 	}
+		// })
+		$.post(url,postData,function(e){
+			if (e.code == 200) {
+				let data = e.data;
+				let category_html = '';
+				$(data).each(function(i){
+					category_html +="<input name='se_category_id[]' type='checkbox' value='"+this.id+"' id='checkbox-moban'/>"+this.name;
+					category_html +="<label for='chekbox-moban'>&nbsp;</label>";
+				});
+				$('.se_category_id').html(category_html);
+			}else{
+				alert(e.msg);
+			}
+		})
+	})
 </script>
 </body>
 </html>

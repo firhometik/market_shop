@@ -1,9 +1,14 @@
 <?php
 namespace app\bis\controller;
-
-class Register extends Admin
+use think\Controller;
+use think\Request;
+use app\admin\model\User;
+class Register extends Controller
 {
 	public function index(){
-		return view();
+		$category = model('Category') -> getparent();
+		return $this -> fetch('',[
+			'category' => $category,
+			]);
 	}
 }
