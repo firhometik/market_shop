@@ -190,30 +190,18 @@ $(function(){
 </script>
 <script type="text/javascript">
 	var SCOPE = {
-		'category_url':'{:url("api/category/getCategoryID",[''])}',
+		'category_url':'{:url("api/category/getCategoryID")}',
 		'city_url':'{:url("api/city/getCityID")}'
 	}
 	$('.categoryId').change(function(){
 		let categoryId = $(this).val();
 		let url = SCOPE.category_url;
-		// let url = 'http://api.market_shop.com/category/getCategoryID?id='+categoryId+'&jsoncallback=?';
 		let postData = {'id':categoryId};
-		// $.getJSON(url, function(e){
-		// 	if (e.code == 200) {
-		// 		let data = e.data;
-		// 		let category_html = '';
-		// 		$(data).each(function(i){
-		// 			category_html +="<input name='se_category_id[]' type='checkbox' value='"+this.id+"' id='checkbox-moban'/>"+this.name;
-		// 			category_html +="<label for='chekbox-moban'>&nbsp;</label>";
-		// 		});
-		// 		$('.se_category_id').html(category_html);
-		// 	}else{
-		// 		alert(e.msg);
-		// 	}
-		// })
 		$.post(url,postData,function(e){
-			if (e.code == 200) {
-				let data = e.data;
+			let a = $.parseJSON(e);
+			console.log(a);
+			if (a.code == 200) {
+				let data = a.data;
 				let category_html = '';
 				$(data).each(function(i){
 					category_html +="<input name='se_category_id[]' type='checkbox' value='"+this.id+"' id='checkbox-moban'/>"+this.name;
@@ -221,7 +209,7 @@ $(function(){
 				});
 				$('.se_category_id').html(category_html);
 			}else{
-				alert(e.msg);
+				$('.se_category_id').html('');
 			}
 		})
 	})
