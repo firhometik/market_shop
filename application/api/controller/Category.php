@@ -1,6 +1,7 @@
 <?php
 namespace app\api\controller;
-class Category extends Base
+use think\Controller;
+class Category extends Controller
 {
 	public function index(){
 		echo "123";

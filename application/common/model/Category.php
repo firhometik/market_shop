@@ -12,7 +12,7 @@ class Category extends Model
 		return $this -> save($data);
 	}
 
-	public function getparent($parentId = 0){
+	public function getCategoryParent($parentId = 0){
 		$data = [
 			'status' => ['neq',-1],
 			'parent_id' => $parentId ,

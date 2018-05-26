@@ -16,25 +16,25 @@
 			</div>
 		</div>
 		
-		<div class="row cl">
+		<div class="row cl city">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所属城市：</label>
 			<div class="formControls col-xs-8 col-sm-2"> 
 				<span class="select-box">
 				<select name="city_id" class="select cityId">
 					<option value="0">--请选择--</option>
-					
-					<option value=""></option>
-					
+					{volist name='city' id="vo"}
+					<option value="{$vo.area_no}">{$vo.area_name}</option>
+					{/volist}
 				</select>
 				</span>
 			</div>
-			<div class="formControls col-xs-8 col-sm-2">
+			<!-- <div class="formControls col-xs-8 col-sm-2 levle2">
 				<span class="select-box">
 				<select name="se_city_id" class="select se_city_id">
 					<option value="0">--请选择--</option>
 				</select>
 				</span> 
-			</div>
+			</div> -->
 		</div>
 		
 		<div class="row cl">
@@ -191,7 +191,7 @@ $(function(){
 <script type="text/javascript">
 	var SCOPE = {
 		'category_url':'{:url("api/category/getCategoryID")}',
-		'city_url':'{:url("api/city/getCityID")}'
+		'city_url':'{:url("api/city/getCityParent")}'
 	}
 	$('.categoryId').change(function(){
 		let categoryId = $(this).val();
@@ -212,7 +212,65 @@ $(function(){
 				$('.se_category_id').html('');
 			}
 		})
-	})
+	});
+	
+	// $(funcion(){
+		$('.cityId').change(function(){
+			let cityId = $(this).val();
+			let url = SCOPE.city_url;
+			let postData = {'id':cityId};
+			$.post(url,postData,function(e){
+				let a = $.parseJSON(e);
+				if (a.code == 200) {
+					let lid = $('#levle2');
+					if (lid) {
+						$('#levle2').remove();
+					}
+					let data = a.data;
+					let city_html = '';
+					city_html += '<div class="formControls col-xs-8 col-sm-2" id="levle2"><span class="select-box">';
+					city_html += '<select name="se_city_id" class="select se_city_id city_level" id="city_level">';
+					city_html += '<option value="" >请选择</option>';
+					$(data).each(function(i){
+						city_html +="<option value='"+this.area_no+"'>"+this.area_name+"</option>";
+					});
+					city_html += '</select></span>';
+					$('.city').append(city_html);
+				}else{
+					$('.se_category_id').html('');
+				}
+			})
+		});
+		$(document).on("change", "#city_level", function() {
+		// $('#city_level').on('change','select',function(){
+			console.log('1');
+			let cityId = $(this).val();
+			let url = SCOPE.city_url;
+			let postData = {'id':cityId};
+			$.post(url,postData,function(e){
+				let a = $.parseJSON(e);
+				if (a.code == 200) {
+					let lid = $('#levle3');
+					if (lid) {
+						$('#levle3').remove();
+					}
+					let data = a.data;
+					let city_html = '';
+					city_html += '<div class="formControls col-xs-8 col-sm-2" id="levle3"><span class="select-box">';
+					city_html += '<select name="se_city_id" class="select se_city_id city_levels">';
+					city_html += '<option value="" >请选择</option>';
+					$(data).each(function(i){
+						city_html +="<option value='"+this.area_no+"'>"+this.area_name+"</option>";
+					});
+					city_html += '</select></span>';
+					$('.city').append(city_html);
+				}else{
+					$('.se_category_id').html('');
+				}
+			})
+		});
+	// })
+	
 </script>
 </body>
 </html>
