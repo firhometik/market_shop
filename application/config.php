@@ -149,6 +149,7 @@ return [
         '__FCSS__'           =>             '/static/Flks/css', 
         '__FJS__'            =>             '/static/Flks/js', 
         '__FIMG__'           =>             '/static/Flks/img', 
+        '__JIMG__'           =>             '/static/Jxs/img', 
         '__FHI__'           =>             '/static/Flks/hui', 
 
     ],
