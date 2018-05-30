@@ -13,4 +13,10 @@ class Register extends Controller
 			'city' 	   => $city,
 			]);
 	}
+	public function add(){
+		if (Request::instance()->post()) {
+			$data = input('post.');
+			dump($data);die;
+		}
+	}
 }

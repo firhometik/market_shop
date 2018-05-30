@@ -12,11 +12,11 @@ class Image extends Controller
 		$file = Request::instance()->file('file');
 		//给定一个目录
 		if ($file) {
-			$info = $file->move(ROOT_PATH . 'public' . DS . 'uploads'); 
+			$info = $file->move('uploads'); 
 		}
 		// $info = $file->move($path);
 		if ($info && $info -> getPathname()) {
-			_outPut('200','上传成功','/'.$info->getPathname());
+			_outPut('200','上传成功',$info->getPathname());
 		}
 		_outPut('201','上传失败');
 	}

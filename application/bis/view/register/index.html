@@ -3,10 +3,6 @@
 <link rel="stylesheet" type="text/css" href='__FCSS__/webuploader.css'>
 <style type="text/css">
 	h3{margin-top: 0;padding-bottom:20px;margin-bottom: 40px;border-bottom: 1px dashed #d7d7d7;padding-top: 40px;}
-	.photo{list-style: none}
-    .photo li{float: left;margin-right: 30px;}
-    .photo li:nth-child(4n){margin-right: 0}
-    .photo img{width: 90px;height: 80px;}
     .z_photo{
         width: 90px;
         height: 80px;
@@ -14,11 +10,19 @@
         background-size: 100%;
         background-repeat: round;
     }
+    .s_photo{
+        width: 90px;
+        height: 80px;
+        background: url(__JIMG__/sjzp1.jpg);
+        background-size: 100%;
+        background-repeat: round;
+    }
     #picker{float: left}
+    #spicker{float: left}
 </style>
 <div class="cl pd-5 bg-1 bk-gray mt-20"> <h1 style="text-align: center;">商户入驻申请</h1></div>
 <article class="page-container">
-	<form class="form form-horizontal"  method="post" action="">
+	<form class="form form-horizontal"  method="post" action="/Register/add">
 		<h3 style="padding-top:0">
 	        <span> 基本信息：</span> 
 		</h3>
@@ -57,9 +61,12 @@
         <div class="row cl">
               <label class="form-label col-xs-4 col-sm-2">营业执照：</label>
               <div class="formControls col-xs-8 col-sm-9">
-                <input id="file_upload_other"  type="file" multiple="true" >
+                <ul class="sphoto">
+                </ul>
+                <div  id="spicker"></div>
+                <!-- <input id="file_upload_other"  type="file" multiple="true" >
                 <img style="display: none" id="upload_org_code_img_other" src="" width="150" height="150">
-                <input id="file_upload_image_other" name="licence_logo" type="hidden" multiple="true" value="">
+                <input id="file_upload_image_other" name="licence_logo" type="hidden" multiple="true" value=""> -->
               </div>
         </div>
         
@@ -271,7 +278,7 @@ $(function(){
 					let data = a.data;
 					let city_html = '';
 					city_html += '<div class="formControls col-xs-8 col-sm-2" id="levle3"><span class="select-box">';
-					city_html += '<select name="se_city_id" class="select se_city_id city_levels">';
+					city_html += '<select name="th_city_id" class="select th_city_id city_levels">';
 					city_html += '<option value="" >请选择</option>';
 					$(data).each(function(i){
 						city_html +="<option value='"+this.area_no+"'>"+this.area_name+"</option>";
@@ -285,91 +292,154 @@ $(function(){
 		});
 	// })
 	
-</script>
-<script type="text/javascript">
-	jQuery(function(){
+</script> 
+<script type='text/javascript'>
+    jQuery(function () {
         $ = jQuery;
-		$list = $('.photo');
-	    if($('.z_addImg').length>0){
-	        $('#picker').hide();
-	        $('.photo').click(function(){$('#picker').find('input[type=file]').trigger('click')})
-	    }
-	    var uploader = WebUploader.create({
+    	// 初始化Web Uploader
+        $list = $('.photo');
+        var uploader = WebUploader.create({
 
-	        // 选完文件后，是否自动上传。
-	        auto: true,
+            // 选完文件后，是否自动上传。
+            auto: true,
 
-	        // swf文件路径
+            // swf文件路径
 
-	        // 文件接收服务端。
-	        server: '{:url("api/image/upload")}',
+            // 文件接收服务端。
+            server: '{:url("api/image/upload")}',
 	        fileVal: 'file',
-	        duplicate: true,
-	        // 选择文件的按钮。可选。
-	        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-	        pick: {
-	            id: '#picker',
-	            label: '<div class="z_photo"></div>'
-	        },
+            duplicate: true,
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: {
+                id: '#picker',
+                label: '<div class="z_photo"></div>'
+            },
 
-	        // 只允许选择图片文件。
-	        accept: {
-	            title: 'Images',
-	            extensions: 'gif,jpg,jpeg,bmp,png',
-	            mimeTypes: 'image/*'
-	        }
-	    });
-	 //    uploader.on('uploadBeforeSend', function(obj, data, headers) {
-		// 	_.extend(headers, {
-		// 	"Origin": '{:url("api/image/upload")}',
-		// 	"Access-Control-Request-Method": "POST"
-		// 	});
-		// });
-	    // 当有文件添加进来的时候
-	    uploader.on('fileQueued', function (file) {
-	        var $li = $('<li id="' + file.id + '" class="z_addImg"><img></li>'),
-	                $img = $li.find('img');
+            // 只允许选择图片文件。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            }
+        });
+     	// 当有文件添加进来的时候
+     	uploader.on('fileQueued', function (file) {
+            var $li = $('<li id="' + file.id + '" class="z_addImg"><img></li>'),
+                    $img = $li.find('img');
 
 
-	        // $list为容器jQuery实例
-	        $list.html('').append($li);
-	        $('#picker').hide();        
-	        // 创建缩略图
-	        // 如果为非图片文件，可以不用调用此方法。
-	        // thumbnailWidth x thumbnailHeight 为 100 x 100
-	        uploader.makeThumb(file, function (error, src) {
-	            if (error) {
-	                $img.replaceWith('<span>不能预览</span>');
-	                return;
-	            }
+            // $list为容器jQuery实例
+            $list.html('').append($li);
+            $('#picker').hide();        
+            // 创建缩略图
+            // 如果为非图片文件，可以不用调用此方法。
+            // thumbnailWidth x thumbnailHeight 为 100 x 100
+            uploader.makeThumb(file, function (error, src) {
+                if (error) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
 
-	            $img.attr('src', src);
-	        }, 100, 100);
-	    });
-	    // 文件上传过程中创建进度条实时显示。//完成时p=1
-	    uploader.on('uploadProgress', function (file, percentage) {
-	    });
+                $img.attr('src', src);
+            }, 100, 100);
+        });
+        // 文件上传过程中创建进度条实时显示。//完成时p=1
+        uploader.on('uploadProgress', function (file, percentage) {
+        });
 
-	    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-	    uploader.on('uploadSuccess', function (file, rs) {
-	        $('#' + file.id).addClass('upload-state-done');
-	        $('#' + file.id).attr('data-src',rs.subName);
-	        $('input[name="user_head"]').val(rs.subName);            
+        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+        uploader.on('uploadSuccess', function (file, rs) {
+            $('#' + file.id).addClass('upload-state-done');
+            $('#' + file.id).attr('data-src',rs.data);
+            $hidd = '<input type="hidden" name="logo" value="'+rs.data+'"/>';
+            $('#picker').append($hidd);
+            // $('input[name="user_head"]').val(rs.data);            
+        });
+
+        // 文件上传失败，显示上传出错。
+        uploader.on('uploadError', function (file) {
+            alert('上传失败,请重新上传');
+            $list.html('');
+            $('#picker').show();
+        });
+
+        // 完成上传完了，成功或者失败，先删除进度条。
+        uploader.on('uploadComplete', function (file) {
+        });
+        //营业执照
+        $lists = $('.sphoto');
+        var uploader = WebUploader.create({
+
+            // 选完文件后，是否自动上传。
+            auto: true,
+
+            // swf文件路径
+
+            // 文件接收服务端。
+            server: '{:url("api/image/upload")}',
+	        fileVal: 'file',
+            duplicate: true,
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: {
+                id: '#spicker',
+                label: '<div class="s_photo"></div>'
+            },
+
+            // 只允许选择图片文件。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            }
+        });
+     	// 当有文件添加进来的时候
+        uploader.on('fileQueued', function (file) {
+            var $lis = $('<li id="' + file.id + '" class="s_addImg"><img></li>'),
+                    $img = $lis.find('img');
 
 
-	    });
+            // $list为容器jQuery实例s
+            $lists.html('').append($lis);
+            $('#spicker').hide();        
+            // 创建缩略图
+            // 如果为非图片文件，可以不用调用此方法。
+            // thumbnailWidth x thumbnailHeight 为 100 x 100
+            uploader.makeThumb(file, function (error, src) {
+                if (error) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
 
-	    // 文件上传失败，显示上传出错。
-	    uploader.on('uploadError', function (file) {
-	        alert('上传失败,请重新上传');
-	        $list.html('');
-	        $('#picker').show();
-	    });
+                $img.attr('src', src);
+            }, 100, 80);
+        });
+        // 文件上传过程中创建进度条实时显示。//完成时p=1
+        uploader.on('uploadProgress', function (file, percentage) {
+        });
 
-	    // 完成上传完了，成功或者失败，先删除进度条。
-	    uploader.on('uploadComplete', function (file) {
-	    });
-	});
+        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+        uploader.on('uploadSuccess', function (file, rs) {
+            $('#' + file.id).addClass('upload-state-done');
+            $('#' + file.id).attr('data-src',rs.data);
+            $hid = '<input type="hidden" name="licence_logo" value="'+rs.data+'"/>';
+            $('#spicker').append($hid);
+            // $('input[name="licence_logo"]').val(rs.data);    
+            $('.sphoto').click(function(){$('#spicker').find('input[type=file]').trigger('click')})                    
+        });
+
+        // 文件上传失败，显示上传出错。
+        uploader.on('uploadError', function (file) {
+            alert('上传失败,请重新上传');
+            $list.html('');
+            $('#spicker').show();
+        });
+
+        // 完成上传完了，成功或者失败，先删除进度条。
+        uploader.on('uploadComplete', function (file) {
+        });
+    })
 </script>
 </body>
 </html>
