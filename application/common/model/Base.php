@@ -1,7 +1,7 @@
 <?php 
 namespace app\common\model;
 use think\Model;
-class BisLocation extends Model
+class Base extends Model
 {
 	// protected $createTime = 'inputtime';
 	// protected $updateTime = 'uptime';

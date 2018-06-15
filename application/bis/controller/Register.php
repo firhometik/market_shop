@@ -14,11 +14,10 @@ class Register extends Controller
 			]);
 	}
 	public function add(){
-		if (Request::instance()->isPost()) {
+		if (!Request::instance()->isPost()) {
 			$this -> error('请求错误');
 		}
 			$data = input('post.');
-			dump($data);die;
 			//校检数据
 			$validate = validate('Bis');
 			if (!$validate->scene('add')->check($data)) {
@@ -37,7 +36,6 @@ class Register extends Controller
 				'name'=>$data['name'],
 				'city_id'=>$data['city_id'],
 				'city_path'=>$data['city'],
-				'se_city_id'=>$data['se_city_id'],
 				'logo'=>$data['logo'],
 				'licence_logo'=>$data['licence_logo'],
 				'bank_info'=>$data['bank_info'],
@@ -58,7 +56,7 @@ class Register extends Controller
 				'bis_id'=>$bisId,
 				'name'=>$data['name'],
 				'tel'=>$data['tel'],
-				'contact'=>$data['contact'],
+				'contract'=>$data['contact'],
 				'category_id'=>$data['category_id'],
 				'category_path'=>$data['category_id'].','.$data['cat'],
 				'city_id'=>$data['city_id'],
@@ -66,10 +64,10 @@ class Register extends Controller
 				'open_time'=>$data['open_time'],
 				'content'=>empty($data['content'])?'':$data['content'],
 				'is_main'=>1,//代表总店信息
-				'xpoind'=>empty($lanlat['result']['loaction']['lng'])?'':$lanlat['result']['loaction']['lng'],
-				'ypoind'=>empty($lanlat['result']['loaction']['lat'])?'':$lanlat['result']['loaction']['lat'],
+				'xpoint'=>empty($lanlat['result']['loaction']['lng'])?'':$lanlat['result']['loaction']['lng'],
+				'ypoint'=>empty($lanlat['result']['loaction']['lat'])?'':$lanlat['result']['loaction']['lat'],
 			];
-			$loactionId = model('BisLocation')->add($loactionData);
+			$loactionId = model('BisLocaltion')->add($loactionData);
 			//账户相关信息校检
 			$data['code'] = mt_rand(100,10000);
 			$accountData = [
@@ -80,18 +78,28 @@ class Register extends Controller
 				'is_main'=>1,
 			];
 			$accountId = model('BisAccount')->add($accountData);	
-			if (!accountId && $bisId && $loactionId) {
+			if (!$accountId && $bisId && $loactionId) {
 				$this -> error('申请失败');
 			}		
 			//发送邮件
-			$url = request()->domain().url('register/waiting',['id'=>$bisId]);
+			// $url = request()->domain().url('register/waiting',['id'=>$bisId]);
+			$url = url('register/waiting',['id'=>$bisId]);
 			$title = 'o2o_shop申请入住通知';
 			$content = '您提交的入驻申请需等待平台审核，您可以通过点击链接<a href="'.$url.'" target="_blank">查看链接</a>了解审核状态';
-			// \PHPMailer\email::send($data['email'],$title,$content);
-			$this -> success('申请成功');
+        	$re = \phpmailer\Email::sendmail($data['email'],$title,$content);
+        	if (!$re) {
+        		$this -> error('邮件发送失败');
+        	}
+			$this -> success('申请成功',url('register/waiting',['id'=>$bisId]));
 
 	}
 	public function waiting(){
-		echo "test";
+		if (empty($id)) {
+			$this -> error('id不合法');
+		}
+		$detail = model('Bis') -> get($id);
+		$this -> fetch('',[
+			'detail'=>$detail,
+			]);
 	}
 }
